@@ -1,0 +1,2 @@
+ALTER TABLE QUOTES
+ADD SOURCE int check(SOURCE in (0, 1, 2));

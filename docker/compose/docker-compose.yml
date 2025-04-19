@@ -1,0 +1,53 @@
+
+x-COMMON-PROPERTIES: &common-properties
+  - qtsapp.eureka-server-address: eureka-server:8761
+
+
+services:
+  eureka-server:
+    image: imjws/qts-eureka-server:latest
+    ports:
+      - 8761:8761
+  config-server:
+    image: imjws/qts-config-server:latest
+    depends_on:
+      - eureka-server
+    ports:
+      - 8888:8888
+    environment:
+      <<: *common-properties
+      qtsapp_configserver_config-uri: /app/config/spring-config
+  admin-app:
+    image: imjws/qts-admin-app:latest
+    depends_on:
+      - eureka-server
+      - config-server
+    environment:
+      <<: *common-properties
+      
+  gateway-server:
+    image: imjws/qts-gateway-service:latest
+    depends_on:
+      - eureka-server
+      - config-server
+    ports:
+      - 8080:8080
+    environment:
+      <<: *common-properties
+      
+
+  quotes-service:
+    image: imjws/qts-quotes-service:latest
+    depends_on:
+      - eureka-server
+      - config-server
+    environment:
+      <<: *common-properties
+      
+  quotes-ui:
+    image: imjws/qts-quotes-ui:latest
+    depends_on:
+      - eureka-server
+      - config-server
+    environment:
+      <<: *common-properties

@@ -1,0 +1,3 @@
+FROM amazoncorretto:17-alpine-jdk
+COPY ./dist/quotes-ui.jar /app/quotes-ui.jar
+CMD [ "java", "-jar", "/app/quotes-ui.jar" ]

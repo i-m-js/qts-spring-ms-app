@@ -1,0 +1,39 @@
+<header>
+    @if(isLoggingIn){
+    Info: Mock auto-signing in progress..
+    }
+    @else if(isLoggedIn){
+    <p-button class="btn-logout" label="logout" severity="danger" rounded="true" (onClick)="logout()"></p-button>
+    } @else {
+    <p-button class="btn-login" label="login" severity="warn" rounded="true" (onClick)="login()"></p-button>
+    }
+</header>
+
+@if (this.quote) {
+<div class="flex-container">
+    <div class="quote-container">
+        <p-card>
+            {{this.quote.content}}
+            <p-footer class="align-right">
+                <i><b>by: </b> {{this.quote.author}}</i>
+                <div class="button-group">
+                    <p-button icon="pi pi-thumbs-up" rounded="true"
+                        label="like | {{this.quoteStat?.aggStat?.likes | shortNumber}}" severity="primary"
+                        outlined="{{!isLoggedIn || !this.quoteStat?.userStat?.isLiked}}" (onClick)="likeQuote()"
+                        [disabled]="!isLoggedIn"></p-button>
+                    <p-button icon="pi pi-thumbs-down" rounded="true"
+                        label="dislike | {{this.quoteStat?.aggStat?.dislikes | shortNumber}}" severity="danger"
+                        outlined="{{!isLoggedIn || !this.quoteStat?.userStat?.isDisliked}}" (onClick)="dislikeQuote()"
+                        [disabled]="!isLoggedIn"></p-button>
+
+                    <p-button icon="pi pi-angle-double-right" rounded="true" severity="primary" outlined="true"
+                        (onClick)="nextRandomQuote()"></p-button>
+                </div>
+            </p-footer>
+        </p-card>
+
+    </div>
+</div>
+} @else {
+Quote not available yet..!
+}

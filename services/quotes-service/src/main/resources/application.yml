@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            loggerLevel: full
+            connectTimeout: 2000
+            readTimeout: 10000
+
+resilience4j:
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 50s # Set the default timeout to 5 seconds

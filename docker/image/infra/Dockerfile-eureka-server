@@ -1,0 +1,3 @@
+FROM amazoncorretto:17-alpine-jdk
+COPY ./dist/eureka-server.jar /app/eureka-server.jar
+CMD [ "java", "-jar", "/app/eureka-server.jar" ]

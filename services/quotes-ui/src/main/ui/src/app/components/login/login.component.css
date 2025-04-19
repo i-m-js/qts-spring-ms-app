@@ -1,0 +1,22 @@
+p-card {
+    width: 50%;
+    max-width: 300px;
+    display: block;
+}
+
+:host {
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+p-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

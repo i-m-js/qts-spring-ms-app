@@ -1,0 +1,10 @@
+<p-card>
+    <div #pheader>Mock login</div>
+    <form (ngSubmit)="login()">
+        <input class="form-field" type="text" pInputText [(ngModel)]="username" name="username"
+            placeholder="username" fluid="true" />
+        <p-password class="form-field" [(ngModel)]="password" [feedback]="false" name="password"
+            placeholder="password"  fluid="true"/>
+        <p-button label="submit" type="submit" fluid="true"></p-button>
+    </form>
+</p-card>

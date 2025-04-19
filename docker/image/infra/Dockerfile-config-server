@@ -1,0 +1,4 @@
+FROM amazoncorretto:17-alpine-jdk
+COPY ./dist/spring-config /app/config/spring-config
+COPY ./dist/config-server.jar /app/config-server.jar
+CMD [ "java", "-jar", "/app/config-server.jar" ]
