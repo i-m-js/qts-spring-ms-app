@@ -18,7 +18,7 @@ This is an experimental microservices project using spring-boot and angular to b
 
 <h4>Note:</h4>
 
-The [config-server](./infra/config-server) is configured to use a local git repo for the configuration. So, clone [spring-config](https://github.com/i-m-js/qts-spring-config) repo. Post that update the `spring.cloud.config.server.git.uri` property in the [application.properties](./infra/config-server/src/main/resources/application.properties)
+The [config-server](./infra/config-server) is configured to use a local git repo for the configuration. So, clone [qts-spring-config](https://github.com/i-m-js/qts-spring-config) repo. Post that update the `spring.cloud.config.server.git.uri` property in the [application.properties](./infra/config-server/src/main/resources/application.properties)
 
 This repo contains a [docker-compose.yml](./docker/compose/docker-compose.yml) file, using which you can launch the containers directly, but run [build-images.sh](./docker/image/build-images.sh) script to generate the images. buid-images.sh file assumes the spring-config repo is a sibling to this project structure, if not update the sh file before running it.
 
