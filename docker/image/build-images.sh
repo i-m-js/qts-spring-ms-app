@@ -6,6 +6,9 @@ if ! docker info > /dev/null 2>&1; then
   exit 1
 fi
 
+#let's do npm install from here instead using maven
+(echo 'running npm install'; cd ../../services/quotes-ui/src/main/ui; npm install);
+
 cd ../../
 start_time=$(date +%s)
 
@@ -28,8 +31,8 @@ cp ../../infra/config-server/target/config-server-0.0.1-SNAPSHOT.jar ./dist/conf
 cp ../../infra/eureka-server/target/eureka-server-0.0.1-SNAPSHOT.jar ./dist/eureka-server.jar
 cp ../../infra/gateway-service/target/gateway-service-0.0.1-SNAPSHOT.jar ./dist/gateway-service.jar
 
-#copy-spring-config directory
-cp -r ../../../spring-config/ ./dist/spring-config
+#copy-qts-spring-config directory
+cp -r ../../../qts-spring-config/ ./dist/spring-config
 
 #services
 
