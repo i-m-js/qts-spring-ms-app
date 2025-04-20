@@ -1,4 +1,5 @@
-Disclaimer
+Disclaimer:
+
 Hello there..! This is a dummy application and it is in WIP without any dealines 😊
 
 ---
